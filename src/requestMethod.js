@@ -1,8 +1,15 @@
 import axios from 'axios';
 
-
+const persistRoot = localStorage.getItem('persist:root');
 const BASE_URL = 'https://primeiecomm.herokuapp.com/api/';
- const TOKEN = JSON.parse(JSON.parse(localStorage.getItem('persist:root'))?.user)?.token || null;
+let TOKEN = null;
+if (persistRoot) {
+  TOKEN = JSON.parse(
+    JSON.parse(localStorage.getItem('persist:root'))?.user
+  )?.token;
+} else {
+  TOKEN = null;
+}
 
 export const publicRequest = axios.create({
   baseURL: BASE_URL,
