@@ -1,5 +1,5 @@
 import { publicRequest } from "../requestMethod";
-import { loginFailure, loginStart, loginSuccess } from "./userSlice"
+import { loginFailure, loginStart, loginSuccess, logoutAndRemoveToken } from "./userSlice"
 
 export const login = async (dispatch, user)=>{
 
@@ -13,3 +13,8 @@ export const login = async (dispatch, user)=>{
     }
 
 }
+export const logout = (dispatch)=>{
+    dispatch(logoutAndRemoveToken());
+
+}
+

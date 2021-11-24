@@ -22,9 +22,11 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const App = () => {
-  const user = useSelector((state)=>state.user?.currentUser);
 
+const App = () => {
+  const user = useSelector((state)=>state.user?.token);
+  
+  console.log(user)
   function LoginRoute({ children }) {
     return user ? <Navigate to='/' /> : children;
   }
