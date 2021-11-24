@@ -110,7 +110,9 @@ const Navbar = () => {
           </SearchContainer>
         </Left>
         <Center>
+        <Link to='/' className='link'>
           <Logo>PRIME.</Logo>
+          </Link>
         </Center>
         <Right>
           <MenuItem>REGISTER</MenuItem>
