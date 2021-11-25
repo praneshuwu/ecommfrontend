@@ -24,12 +24,31 @@ const userSlice = createSlice({
     },
     logoutAndRemoveToken: (state) => {
       state.currentUser = null;
-      state.isError = null;
+      state.isError = false;
       state.token = null;
+    },
+    registerStart: (state) => {
+      state.isFetching = true;
+    },
+    registerSuccess: (state, action) => {
+      state.isFetching = false;
+      state.currentUser = action.payload?.username;
+      state.isError = false;
+    },
+    registerFailure: (state) => {
+      state.isFetching = false;
+      state.isError = true;
     },
   },
 });
 
-export const { loginStart, loginSuccess, loginFailure,logoutAndRemoveToken} =
-  userSlice.actions;
+export const {
+  loginStart,
+  loginSuccess,
+  loginFailure,
+  logoutAndRemoveToken,
+  registerStart,
+  registerSuccess,
+  registerFailure,
+} = userSlice.actions;
 export default userSlice.reducer;

@@ -50,6 +50,7 @@ const Logo = styled.h1`
   font-weight: bold;
   text-align: center;
   ${mobile({ fontSize: '24px' })}
+  text-decoration:none;
 `;
 const Right = styled.div`
   flex: 1;
@@ -57,6 +58,8 @@ const Right = styled.div`
   align-items: center;
   justify-content: flex-end;
   ${mobile({ flex: 2, justifyContent: 'center' })}
+  text-decoration:none;
+
 `;
 
 const MenuItem = styled.div`
@@ -64,6 +67,8 @@ const MenuItem = styled.div`
   cursor: pointer;
   margin-left: 25px;
   ${mobile({ fontSize: '12px', marginLeft: '10px' })}
+  text-decoration:none;
+
 `;
 
 const Navbar = () => {
@@ -110,13 +115,16 @@ const Navbar = () => {
           </SearchContainer>
         </Left>
         <Center>
-        <Link to='/' className='link'>
-          <Logo>PRIME.</Logo>
-          </Link>
+       
+          <Logo> <Link to='/' className='link'>PRIME.</Link></Logo>
+          
         </Center>
         <Right>
+          <Link to='/register' className='link'>
+
           <MenuItem>REGISTER</MenuItem>
-          <UserNavLink />
+          </Link>
+          <UserNavLink  className='link'/>
           <Link to='/cart' className='link'>
             <MenuItem>
               <Badge badgeContent={quantity} color='primary'>
