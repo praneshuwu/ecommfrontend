@@ -170,14 +170,11 @@ const Cart = () => {
           amount: cart.total * 100,
         });
 
-        console.log(res.data);
         navigate('/success', { state: res.data });
       } catch (err) {
         console.log(err);
       }
     };
-    console.log(stripeToken);
-    console.log(cart.total * 100);
     stripeToken && makeRequest();
   }, [stripeToken, cart.total, navigate]);
 
